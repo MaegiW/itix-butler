@@ -1,4 +1,5 @@
 import{Link} from 'react-router-dom'
+import DateChickIn from './components/DateChickIn'
 
 function Checkin() {
   return (
@@ -6,12 +7,7 @@ function Checkin() {
       <div className='border-secondary p-5'>
         <h3>iTix行動管家</h3>
         <p className='fs-5'>預約報到管理</p>
-        <select name="" id="">
-          <option>2024-01-15-2pm(7位)</option>
-          <option>2024-01-15-2pm(2位)</option>
-          <option>2024-01-15-2pm(2位)</option>
-          <option>2024-01-15-2pm(2位)</option>
-        </select>
+        <DateChickIn/>
 
         <div>
           <div className='mt-3 d-md-flex justify-content'>
