@@ -1,5 +1,6 @@
 import{Link} from 'react-router-dom'
 import './App.css'
+import DateSelector from './components/DateSelector';
 
 function Report() {
 
@@ -14,12 +15,7 @@ function Report() {
         <div className='border-secondary p-5'>
             <h3>iTix行動管家</h3>
             <p className='fs-5'>核銷報表</p>
-            <select name="" id="">
-                <option>2024-01-15</option>
-                <option>2024-01-16</option>
-                <option>2024-01-17</option>
-                <option>2024-01-18</option>
-            </select>
+            <DateSelector/>
         </div>
 
             {datetime.map((value, i) => (
