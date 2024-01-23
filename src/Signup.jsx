@@ -1,43 +1,34 @@
-import{Link} from 'react-router-dom'
+import CustomInput from './components/CustomInput'
+import CustomButton from './components/CustomButton'
 
 function Signup() {
+    const handleButtonClick =()=>{
+        console.log("button Clicked~!");
+    }
+
   return (
     <form className='border border-secondary p-5'>
         <h3>iTix行動管家</h3>
         <p className='fs-5'>申請新管理者</p>
-        <div className='mb-2'>
-            <label htmlFor='name'className='form-label'>店家名稱:</label>
-            <input type='text' placeholder='膂盟大飯店' className='form-control'></input>
-        </div>
+        
+        <CustomInput htmlFor='name' labelText='店家名稱:' type='text' placeholder='膂盟大飯店'/>
 
-        <div className='mb-2'>
-            <label htmlFor='name'className='form-label'>您的姓名:</label>
-            <input type='text' placeholder='王馬吉' className='form-control'></input>
-        </div>
+        <CustomInput htmlFor='name' labelText='您的姓名:' type='text' placeholder='王馬吉'/>
 
-        <div className='mb-2'>
-            <label htmlFor='phone'className='form-label'>您的手機:</label>
-            <input type='text' placeholder='0911111111' className='form-control'></input>
-        </div>
+        <CustomInput htmlFor='phone' labelText='您的手機:' type='text' placeholder='0911111111'/>
 
-        <div className='mb-2'>
-            <label id='email'className='form-label'>管理者郵件:</label>
-            <input type='email' placeholder='maggie156@hihotel.com.tw' className='form-control'></input>
-        </div>
+        <CustomInput htmlFor='email' labelText='管理者郵件:' type='email' placeholder='maggie156@hihotel.com.tw'/>
+    
+        <CustomInput htmlFor='password' labelText='管理者密碼:' type='password' placeholder='*******' />
 
-        <div className='mb-2'>
-            <label id='password'className='form-label'>管理者密碼:</label>
-            <input type='password' placeholder='*******' className='form-control'></input>
-        </div>
 
         <div className='mb-2 d-md-flex justify-content-md-end'>
-            <button className='btn btn-primary'>申請</button>
+            <CustomButton buttonText='申請' to='/checkin' onClickHandler={handleButtonClick} />
         </div>
         
-        <div className='mb-2 '>
+        <div className='mb-2 d-md-flex justify-content-md-end'>
             <a href='' className='me-5'>忘記密碼?</a>
-            <button className='btn btn-primary  '>
-            <Link to='/'>綁定</Link></button>
+            <CustomButton buttonText='綁定' to='/' onClickHandler={handleButtonClick} />
         </div>
     </form>
   )

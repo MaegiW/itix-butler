@@ -1,7 +1,18 @@
-import{Link} from 'react-router-dom'
 import DateChickIn from './components/DateChickIn'
+import { useState } from 'react'
+import NavButton from './components/NavButton'
+import CustomButton from './components/CustomButton';
 
 function Checkin() {
+  const [activePage, setActivePage] = useState('/checkin');
+  
+  const buttons = [
+    {to:'/checkin' , text:'報到' , isActive :activePage ==='/checkin' },
+    {to:'/scan' , text:'掃描' , isActive :activePage ==='/scan' },
+    {to:'/writeoff' , text:'核銷' , isActive :activePage ==='/writeoff' },
+    {to:'/report' , text:'報表' , isActive :activePage ==='/report' },
+  ]
+
   return (
     <div className='border container'>
       <div className='border-secondary p-5'>
@@ -12,12 +23,12 @@ function Checkin() {
         <div>
           <div className='mt-3 d-md-flex justify-content'>
               <p className='me-4'>陳'r: xxx985(3位)</p>
-              <button className='btn btn-primary'>報到</button>
+              <CustomButton buttonText='報到' />
           </div>
 
           <div className='mt-3 d-md-flex justify-content'>
               <p className='me-4'>陳's: xxx123(2位)</p>
-              <button className='btn btn-primary'>報到</button>
+              <CustomButton buttonText='報到' />
           </div>
 
           <div className='mt-3 d-md-flex justify-content'>
@@ -26,13 +37,8 @@ function Checkin() {
           </div>
         </div>
     </div>
-      <div className='mt-5 d-flex justify-content-around'>
-          <Link to='/checkin' className="btn btn-primary">報到</Link>
-          <Link to='/scan' className="btn btn-primary">掃描</Link>
-          <Link to='/writeoff' className="btn btn-primary">核銷</Link>
-          <Link to='/report' className="btn btn-primary">報表</Link>
-      </div>
-
+    
+    <NavButton buttons={buttons}/>
     </div>
   )
 }

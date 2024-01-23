@@ -1,4 +1,5 @@
-import{Link} from 'react-router-dom'
+import NavButton from './components/NavButton'
+import { useState } from 'react'
 
 function Writeoff() {
     const order = {
@@ -10,8 +11,14 @@ function Writeoff() {
         ticketName: '情人節下午茶組合',
         reservationTime: '2024-01-15-12:30',
         checkInStatus: '未報到',
-
     }
+    const [button , seteButton] = useState('/writeoff')
+    const buttons = [
+      {to:'/checkin' , text:'報到' , isActive:button ==='/checkin' },
+      {to:'/scan' , text:'掃描' , isActive:button ==='/scan' },
+      {to:'/writeoff' , text:'核銷' , isActive:button ==='/writeoff' },
+      {to:'/report' , text:'報表' , isActive:button ==='/report' },
+    ]
     
   return (
     <div className='border container'>
@@ -39,12 +46,7 @@ function Writeoff() {
             <button className='btn btn-primary'>反核銷</button>
         </div>
     
-        <div className='mt-5 d-flex justify-content-around'>
-            <Link to='/checkin' className="btn btn-primary">報到</Link>
-            <Link to='/scan' className="btn btn-primary">掃描</Link>
-            <Link to='/writeoff'className="btn btn-primary">核銷</Link>
-            <Link to='/report' className="btn btn-primary">報表</Link>
-        </div>
+        <NavButton buttons={buttons}/>
 
     </div>
   )
